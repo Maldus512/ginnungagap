@@ -1,0 +1,55 @@
+rule gcc
+    command = arm-none-eabi-gcc -MD -MF $out.d -nostartfiles -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/pico/boot_stage2/picosdk/ -c $in -o $out
+    depfile = $out.d
+    deps = gcc
+
+rule link
+    command = arm-none-eabi-ld -nostdlib $extraFlags  $in -o $out
+
+rule objcopy-binary
+    command = arm-none-eabi-objcopy -O binary $in $out
+
+rule patch-boot-stage2
+    command = ./svad.lua stage2 $in $out
+
+rule uf2
+    command = ./svad.lua uf2 $in $out
+
+rule reconfigure
+    command = ./svad.lua configure
+
+build build/components/pico/boot_stage2/boot_stage2.o: gcc components/pico/boot_stage2/boot_stage2.c
+
+build components/pico/boot_stage2/boot_stage2.elf: link  build/components/pico/boot_stage2/boot_stage2.o | components/pico/boot_stage2/memmap.ld
+    extraFlags = -T components/pico/boot_stage2/memmap.ld
+
+build components/pico/boot_stage2/boot_stage2.bin: objcopy-binary components/pico/boot_stage2/boot_stage2.elf
+
+build components/pico/boot_stage2/boot_stage2_checked.s: patch-boot-stage2 components/pico/boot_stage2/boot_stage2.bin
+
+build components/pico/boot_stage2/boot_stage2_checked.o: gcc components/pico/boot_stage2/boot_stage2_checked.s
+
+build build/main/bsp/crt0.o: gcc main/bsp/crt0.c
+
+build build/main/main.o: gcc main/main.c
+
+build build/components/rp2040/gpio/gpio.o: gcc components/rp2040/gpio/gpio.c
+
+build build/components/rp2040/sio/sio.o: gcc components/rp2040/sio/sio.c
+
+build build/components/rp2040/uart/uart.o: gcc components/rp2040/uart/uart.c
+
+build build/components/rp2040/resets/resets.o: gcc components/rp2040/resets/resets.c
+
+build build/components/rp2040/systick/systick.o: gcc components/rp2040/systick/systick.c
+
+build build/ginnungagap.elf: link components/pico/boot_stage2/boot_stage2_checked.o build/main/bsp/crt0.o build/main/main.o build/components/rp2040/gpio/gpio.o build/components/rp2040/sio/sio.o build/components/rp2040/uart/uart.o build/components/rp2040/resets/resets.o build/components/rp2040/systick/systick.o | main/memmap.ld
+    extraFlags = -T main/memmap.ld
+
+build build/ginnungagap.bin: objcopy-binary build/ginnungagap.elf
+
+build build/ginnungagap.uf2: uf2 build/ginnungagap.bin
+
+build build/build.ninja: reconfigure svad.lua
+    generator = true
+

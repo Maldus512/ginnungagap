@@ -1,0 +1,2 @@
+CompileFlags:                     # Tweak the parse settings
+  Compiler: arm-none-eabi-gcc
