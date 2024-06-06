@@ -10,6 +10,7 @@ static void delay(unsigned long ticks) {
         ;
 }
 
+
 int main(void) {
     // release reset on IO_BANK0
     *RP2040_CLEAR(RP2040_RESETS_RESET) = RP2040_RESETS_BIT_IO_BANK0;
@@ -27,10 +28,10 @@ int main(void) {
     for (;;) {
         // turn on the led
         *RP2040_SIO_GPIO_OUT_SET = RP2040_SIO_GPIO_BIT(RP2040_GPIO_25);
-        delay(0x10000);
+        delay(100000);
         //  turn off the led
         *RP2040_SIO_GPIO_OUT_CLR = RP2040_SIO_GPIO_BIT(RP2040_GPIO_25);
-        delay(0x10000);
+        delay(100000);
     }
 
     return 0;

@@ -1,80 +1,86 @@
 [
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-gcc -MD -MF build/components/pico/boot_stage2/boot_stage2.o.d -nostartfiles -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/pico/boot_stage2/picosdk/ -c components/pico/boot_stage2/boot_stage2.c -o build/components/pico/boot_stage2/boot_stage2.o",
-    "file": "components/pico/boot_stage2/boot_stage2.c",
-    "output": "build/components/pico/boot_stage2/boot_stage2.o"
+    "command": "arm-none-eabi-gcc -MD -MF build/components/munin-boot2/boot_stage2.o.d -nostartfiles -ffreestanding -O1 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -c components/munin-boot2/boot_stage2.c -o build/components/munin-boot2/boot_stage2.o",
+    "file": "components/munin-boot2/boot_stage2.c",
+    "output": "build/components/munin-boot2/boot_stage2.o"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-ld -nostdlib -T components/pico/boot_stage2/memmap.ld  build/components/pico/boot_stage2/boot_stage2.o -o components/pico/boot_stage2/boot_stage2.elf",
-    "file": "build/components/pico/boot_stage2/boot_stage2.o",
-    "output": "components/pico/boot_stage2/boot_stage2.elf"
+    "command": "arm-none-eabi-ld -nostdlib -T components/munin-boot2/memmap.ld  build/components/munin-boot2/boot_stage2.o -o components/munin-boot2/boot_stage2.elf",
+    "file": "build/components/munin-boot2/boot_stage2.o",
+    "output": "components/munin-boot2/boot_stage2.elf"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-objcopy -O binary components/pico/boot_stage2/boot_stage2.elf components/pico/boot_stage2/boot_stage2.bin",
-    "file": "components/pico/boot_stage2/boot_stage2.elf",
-    "output": "components/pico/boot_stage2/boot_stage2.bin"
+    "command": "arm-none-eabi-objcopy -O binary components/munin-boot2/boot_stage2.elf components/munin-boot2/boot_stage2.bin",
+    "file": "components/munin-boot2/boot_stage2.elf",
+    "output": "components/munin-boot2/boot_stage2.bin"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "./svad.lua stage2 components/pico/boot_stage2/boot_stage2.bin components/pico/boot_stage2/boot_stage2_checked.s",
-    "file": "components/pico/boot_stage2/boot_stage2.bin",
-    "output": "components/pico/boot_stage2/boot_stage2_checked.s"
+    "command": "./svad.lua stage2 components/munin-boot2/boot_stage2.bin components/munin-boot2/boot_stage2_checked.s",
+    "file": "components/munin-boot2/boot_stage2.bin",
+    "output": "components/munin-boot2/boot_stage2_checked.s"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-gcc -MD -MF components/pico/boot_stage2/boot_stage2_checked.o.d -nostartfiles -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/pico/boot_stage2/picosdk/ -c components/pico/boot_stage2/boot_stage2_checked.s -o components/pico/boot_stage2/boot_stage2_checked.o",
-    "file": "components/pico/boot_stage2/boot_stage2_checked.s",
-    "output": "components/pico/boot_stage2/boot_stage2_checked.o"
+    "command": "arm-none-eabi-gcc -MD -MF components/munin-boot2/boot_stage2_checked.o.d -nostartfiles -ffreestanding -O1 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -c components/munin-boot2/boot_stage2_checked.s -o components/munin-boot2/boot_stage2_checked.o",
+    "file": "components/munin-boot2/boot_stage2_checked.s",
+    "output": "components/munin-boot2/boot_stage2_checked.o"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-gcc -MD -MF build/main/bsp/crt0.o.d -nostartfiles -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/pico/boot_stage2/picosdk/ -c main/bsp/crt0.c -o build/main/bsp/crt0.o",
-    "file": "main/bsp/crt0.c",
-    "output": "build/main/bsp/crt0.o"
+    "command": "arm-none-eabi-gcc -MD -MF build/main/bsp/oscillator.o.d -nostartfiles -ffreestanding -O1 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -c main/bsp/oscillator.c -o build/main/bsp/oscillator.o",
+    "file": "main/bsp/oscillator.c",
+    "output": "build/main/bsp/oscillator.o"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-gcc -MD -MF build/main/main.o.d -nostartfiles -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/pico/boot_stage2/picosdk/ -c main/main.c -o build/main/main.o",
+    "command": "arm-none-eabi-gcc -MD -MF build/main/main.o.d -nostartfiles -ffreestanding -O1 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -c main/main.c -o build/main/main.o",
     "file": "main/main.c",
     "output": "build/main/main.o"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-gcc -MD -MF build/components/rp2040/gpio/gpio.o.d -nostartfiles -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/pico/boot_stage2/picosdk/ -c components/rp2040/gpio/gpio.c -o build/components/rp2040/gpio/gpio.o",
+    "command": "arm-none-eabi-gcc -MD -MF build/main/crt0.o.d -nostartfiles -ffreestanding -O1 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -c main/crt0.c -o build/main/crt0.o",
+    "file": "main/crt0.c",
+    "output": "build/main/crt0.o"
+  },
+  {
+    "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
+    "command": "arm-none-eabi-gcc -MD -MF build/components/rp2040/gpio/gpio.o.d -nostartfiles -ffreestanding -O1 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -c components/rp2040/gpio/gpio.c -o build/components/rp2040/gpio/gpio.o",
     "file": "components/rp2040/gpio/gpio.c",
     "output": "build/components/rp2040/gpio/gpio.o"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-gcc -MD -MF build/components/rp2040/sio/sio.o.d -nostartfiles -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/pico/boot_stage2/picosdk/ -c components/rp2040/sio/sio.c -o build/components/rp2040/sio/sio.o",
+    "command": "arm-none-eabi-gcc -MD -MF build/components/rp2040/sio/sio.o.d -nostartfiles -ffreestanding -O1 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -c components/rp2040/sio/sio.c -o build/components/rp2040/sio/sio.o",
     "file": "components/rp2040/sio/sio.c",
     "output": "build/components/rp2040/sio/sio.o"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-gcc -MD -MF build/components/rp2040/uart/uart.o.d -nostartfiles -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/pico/boot_stage2/picosdk/ -c components/rp2040/uart/uart.c -o build/components/rp2040/uart/uart.o",
+    "command": "arm-none-eabi-gcc -MD -MF build/components/rp2040/uart/uart.o.d -nostartfiles -ffreestanding -O1 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -c components/rp2040/uart/uart.c -o build/components/rp2040/uart/uart.o",
     "file": "components/rp2040/uart/uart.c",
     "output": "build/components/rp2040/uart/uart.o"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-gcc -MD -MF build/components/rp2040/resets/resets.o.d -nostartfiles -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/pico/boot_stage2/picosdk/ -c components/rp2040/resets/resets.c -o build/components/rp2040/resets/resets.o",
+    "command": "arm-none-eabi-gcc -MD -MF build/components/rp2040/resets/resets.o.d -nostartfiles -ffreestanding -O1 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -c components/rp2040/resets/resets.c -o build/components/rp2040/resets/resets.o",
     "file": "components/rp2040/resets/resets.c",
     "output": "build/components/rp2040/resets/resets.o"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-gcc -MD -MF build/components/rp2040/systick/systick.o.d -nostartfiles -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/pico/boot_stage2/picosdk/ -c components/rp2040/systick/systick.c -o build/components/rp2040/systick/systick.o",
+    "command": "arm-none-eabi-gcc -MD -MF build/components/rp2040/systick/systick.o.d -nostartfiles -ffreestanding -O1 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -c components/rp2040/systick/systick.c -o build/components/rp2040/systick/systick.o",
     "file": "components/rp2040/systick/systick.c",
     "output": "build/components/rp2040/systick/systick.o"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-ld -nostdlib -T main/memmap.ld  components/pico/boot_stage2/boot_stage2_checked.o build/main/bsp/crt0.o build/main/main.o build/components/rp2040/gpio/gpio.o build/components/rp2040/sio/sio.o build/components/rp2040/uart/uart.o build/components/rp2040/resets/resets.o build/components/rp2040/systick/systick.o -o build/ginnungagap.elf",
-    "file": "components/pico/boot_stage2/boot_stage2_checked.o",
+    "command": "arm-none-eabi-ld -nostdlib -T main/memmap.ld  components/munin-boot2/boot_stage2_checked.o build/main/bsp/oscillator.o build/main/main.o build/main/crt0.o build/components/rp2040/gpio/gpio.o build/components/rp2040/sio/sio.o build/components/rp2040/uart/uart.o build/components/rp2040/resets/resets.o build/components/rp2040/systick/systick.o -o build/ginnungagap.elf",
+    "file": "components/munin-boot2/boot_stage2_checked.o",
     "output": "build/ginnungagap.elf"
   },
   {

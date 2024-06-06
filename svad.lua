@@ -12,15 +12,13 @@ local LINKER = TOOLCHAIN .. "-ld"
 local OBJCOPY = TOOLCHAIN .. "-objcopy"
 local GDB = TOOLCHAIN .. "-gdb"
 
-local INCLUDES = "-Icomponents -Icomponents/pico/boot_stage2/picosdk/"
+local INCLUDES = "-Icomponents -Icomponents/munin-boot2/picosdk/"
 local MAIN_MEMMAP = "main/memmap.ld"
 local FCPU = "-mcpu=cortex-m0"
-local CFLAGS = "-nostartfiles -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic " .. FCPU .. " " .. INCLUDES
+local CFLAGS = "-nostartfiles -ffreestanding -O1 -g -mthumb -Wall -Wextra -pedantic " .. FCPU .. " " .. INCLUDES
 local LFLAGS = "-nostdlib"
 
-local COMPONENT_RP2040 = "components/rp2040"
-local COMPONENT_PICO = "components/pico"
-local COMPONENT_BOOT_STAGE2 = COMPONENT_PICO .. "/boot_stage2"
+local COMPONENT_BOOT_STAGE2 = "components/munin-boot2"
 
 local BOOT_STAGE2_MEMMAP = COMPONENT_BOOT_STAGE2 .. "/memmap.ld"
 

@@ -84,16 +84,16 @@ __attribute__((weak)) void nvic_systick_handler(void) {
 
 
 static void reset_handler(void) {
-    uint32_t *data_ptr      = (uint32_t *)&__data_start__;
-    uint32_t *data_init_ptr = (uint32_t *)&__data_init__;
-    uint32_t  data_size     = (uint32_t)(uintptr_t)&__data_size__;
+    volatile uint32_t *data_ptr      = (uint32_t *)&__data_start__;
+    volatile uint32_t *data_init_ptr = (uint32_t *)&__data_init__;
+    volatile uint32_t  data_size     = (uint32_t)(uintptr_t)&__data_size__;
 
     for (uint32_t i = 0; i < data_size; i++) {
         data_ptr[i] = data_init_ptr[i];
     }
 
-    uint32_t *bss_ptr  = (uint32_t *)&__bss_start__;
-    uint32_t  bss_size = (uint32_t)(uintptr_t)&__bss_size__;
+    volatile uint32_t *bss_ptr  = (uint32_t *)&__bss_start__;
+    volatile uint32_t  bss_size = (uint32_t)(uintptr_t)&__bss_size__;
 
     for (uint32_t i = 0; i < bss_size; i++) {
         bss_ptr[i] = 0;
