@@ -1,12 +1,12 @@
 #include "rp2040/xosc.h"
 #include "rp2040/clocks.h"
-#include "oscillator.h"
+#include "clock.h"
 
 
 #define PICO_STARTUP_DELAY 47
 
 
-void pico_oscillator_init(void) {
+uint32_t bsp_clock_init(void) {
     *RP2040_XOSC_STARTUP = PICO_STARTUP_DELAY;
     *RP2040_XOSC_CTRL    = RP2040_XOSC_CTRL_FREQ_RANGE_BITS(RP2040_XOSC_CTRL_FREQ_RANGE) |
                         RP2040_XOSC_CTRL_ENABLE_BITS(RP2040_XOSC_CTRL_ENABLE_CMD_ENABLE);
@@ -16,5 +16,7 @@ void pico_oscillator_init(void) {
     *RP2040_CLOCKS_REF_CTRL = RP2040_CLOCKS_REF_CTRL_SCR_XOSC_CLKSRC;
     *RP2040_CLOCKS_CLK_PERI_CTRL =
         RP2040_CLOCKS_CLK_PERI_CTRL_AUXSRC_BITS(RP2040_CLOCKS_CLK_PERI_CTRL_AUXSRC_XOSC_CLKSRC) |
-        RP2040_CLOCKS_CLK_PERI_CTRL_ENABLE_BITS(1);
+        RP2040_CLOCKS_CLK_PERI_CTRL_ENABLE_BIT;
+
+    return 12000000;
 }

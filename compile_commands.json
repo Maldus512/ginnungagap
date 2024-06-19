@@ -1,104 +1,146 @@
 [
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-gcc -MD -MF build/components/munin-boot2/boot_stage2.o.d -nostartfiles -ffreestanding -O1 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -c components/munin-boot2/boot_stage2.c -o build/components/munin-boot2/boot_stage2.o",
-    "file": "components/munin-boot2/boot_stage2.c",
-    "output": "build/components/munin-boot2/boot_stage2.o"
+    "command": "arm-none-eabi-gcc -MD -MF /home/maldus/Projects/Maldus512/ginnungagap/build/components/munin-boot2/boot_stage2.o.d -nostartfiles -nostdlib -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -Imain -c /home/maldus/Projects/Maldus512/ginnungagap/components/munin-boot2/boot_stage2.c -o /home/maldus/Projects/Maldus512/ginnungagap/build/components/munin-boot2/boot_stage2.o",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/components/munin-boot2/boot_stage2.c",
+    "output": "/home/maldus/Projects/Maldus512/ginnungagap/build/components/munin-boot2/boot_stage2.o"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-ld -nostdlib -T components/munin-boot2/memmap.ld  build/components/munin-boot2/boot_stage2.o -o components/munin-boot2/boot_stage2.elf",
-    "file": "build/components/munin-boot2/boot_stage2.o",
-    "output": "components/munin-boot2/boot_stage2.elf"
+    "command": "arm-none-eabi-gcc -nostartfiles -mthumb -mcpu=cortex-m0 -T components/munin-boot2/memmap.ld -Wl,-Map=/home/maldus/Projects/Maldus512/ginnungagap/build/components/munin-boot2/boot_stage2.elf.map /home/maldus/Projects/Maldus512/ginnungagap/build/components/munin-boot2/boot_stage2.o -o /home/maldus/Projects/Maldus512/ginnungagap/build/components/munin-boot2/boot_stage2.elf ",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/build/components/munin-boot2/boot_stage2.o",
+    "output": "/home/maldus/Projects/Maldus512/ginnungagap/build/components/munin-boot2/boot_stage2.elf"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-objcopy -O binary components/munin-boot2/boot_stage2.elf components/munin-boot2/boot_stage2.bin",
-    "file": "components/munin-boot2/boot_stage2.elf",
-    "output": "components/munin-boot2/boot_stage2.bin"
+    "command": "arm-none-eabi-objcopy -O binary /home/maldus/Projects/Maldus512/ginnungagap/build/components/munin-boot2/boot_stage2.elf /home/maldus/Projects/Maldus512/ginnungagap/build/components/munin-boot2/boot_stage2.bin",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/build/components/munin-boot2/boot_stage2.elf",
+    "output": "/home/maldus/Projects/Maldus512/ginnungagap/build/components/munin-boot2/boot_stage2.bin"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "./svad.lua stage2 components/munin-boot2/boot_stage2.bin components/munin-boot2/boot_stage2_checked.s",
-    "file": "components/munin-boot2/boot_stage2.bin",
-    "output": "components/munin-boot2/boot_stage2_checked.s"
+    "command": "svad.lua stage2 /home/maldus/Projects/Maldus512/ginnungagap/build/components/munin-boot2/boot_stage2.bin /home/maldus/Projects/Maldus512/ginnungagap/build/components/munin-boot2/boot_stage2_checked.s",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/build/components/munin-boot2/boot_stage2.bin",
+    "output": "/home/maldus/Projects/Maldus512/ginnungagap/build/components/munin-boot2/boot_stage2_checked.s"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-gcc -MD -MF components/munin-boot2/boot_stage2_checked.o.d -nostartfiles -ffreestanding -O1 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -c components/munin-boot2/boot_stage2_checked.s -o components/munin-boot2/boot_stage2_checked.o",
-    "file": "components/munin-boot2/boot_stage2_checked.s",
-    "output": "components/munin-boot2/boot_stage2_checked.o"
+    "command": "arm-none-eabi-gcc -MD -MF /home/maldus/Projects/Maldus512/ginnungagap/build/components/munin-boot2/boot_stage2_checked.o.d -nostartfiles -nostdlib -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -Imain -c /home/maldus/Projects/Maldus512/ginnungagap/build/components/munin-boot2/boot_stage2_checked.s -o /home/maldus/Projects/Maldus512/ginnungagap/build/components/munin-boot2/boot_stage2_checked.o",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/build/components/munin-boot2/boot_stage2_checked.s",
+    "output": "/home/maldus/Projects/Maldus512/ginnungagap/build/components/munin-boot2/boot_stage2_checked.o"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-gcc -MD -MF build/main/bsp/oscillator.o.d -nostartfiles -ffreestanding -O1 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -c main/bsp/oscillator.c -o build/main/bsp/oscillator.o",
-    "file": "main/bsp/oscillator.c",
-    "output": "build/main/bsp/oscillator.o"
+    "command": "arm-none-eabi-gcc -MD -MF /home/maldus/Projects/Maldus512/ginnungagap/build/main/sys/entry.o.d -nostartfiles -nostdlib -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -Imain -c /home/maldus/Projects/Maldus512/ginnungagap/main/sys/entry.S -o /home/maldus/Projects/Maldus512/ginnungagap/build/main/sys/entry.o",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/main/sys/entry.S",
+    "output": "/home/maldus/Projects/Maldus512/ginnungagap/build/main/sys/entry.o"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-gcc -MD -MF build/main/main.o.d -nostartfiles -ffreestanding -O1 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -c main/main.c -o build/main/main.o",
-    "file": "main/main.c",
-    "output": "build/main/main.o"
+    "command": "arm-none-eabi-gcc -MD -MF /home/maldus/Projects/Maldus512/ginnungagap/build/main/bsp/clock.o.d -nostartfiles -nostdlib -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -Imain -c /home/maldus/Projects/Maldus512/ginnungagap/main/bsp/clock.c -o /home/maldus/Projects/Maldus512/ginnungagap/build/main/bsp/clock.o",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/main/bsp/clock.c",
+    "output": "/home/maldus/Projects/Maldus512/ginnungagap/build/main/bsp/clock.o"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-gcc -MD -MF build/main/crt0.o.d -nostartfiles -ffreestanding -O1 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -c main/crt0.c -o build/main/crt0.o",
-    "file": "main/crt0.c",
-    "output": "build/main/crt0.o"
+    "command": "arm-none-eabi-gcc -MD -MF /home/maldus/Projects/Maldus512/ginnungagap/build/main/main.o.d -nostartfiles -nostdlib -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -Imain -c /home/maldus/Projects/Maldus512/ginnungagap/main/main.c -o /home/maldus/Projects/Maldus512/ginnungagap/build/main/main.o",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/main/main.c",
+    "output": "/home/maldus/Projects/Maldus512/ginnungagap/build/main/main.o"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-gcc -MD -MF build/components/rp2040/gpio/gpio.o.d -nostartfiles -ffreestanding -O1 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -c components/rp2040/gpio/gpio.c -o build/components/rp2040/gpio/gpio.o",
-    "file": "components/rp2040/gpio/gpio.c",
-    "output": "build/components/rp2040/gpio/gpio.o"
+    "command": "arm-none-eabi-gcc -MD -MF /home/maldus/Projects/Maldus512/ginnungagap/build/main/sys/assert.o.d -nostartfiles -nostdlib -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -Imain -c /home/maldus/Projects/Maldus512/ginnungagap/main/sys/assert.c -o /home/maldus/Projects/Maldus512/ginnungagap/build/main/sys/assert.o",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/main/sys/assert.c",
+    "output": "/home/maldus/Projects/Maldus512/ginnungagap/build/main/sys/assert.o"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-gcc -MD -MF build/components/rp2040/sio/sio.o.d -nostartfiles -ffreestanding -O1 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -c components/rp2040/sio/sio.c -o build/components/rp2040/sio/sio.o",
-    "file": "components/rp2040/sio/sio.c",
-    "output": "build/components/rp2040/sio/sio.o"
+    "command": "arm-none-eabi-gcc -MD -MF /home/maldus/Projects/Maldus512/ginnungagap/build/main/sys/syscalls.o.d -nostartfiles -nostdlib -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -Imain -c /home/maldus/Projects/Maldus512/ginnungagap/main/sys/syscalls.c -o /home/maldus/Projects/Maldus512/ginnungagap/build/main/sys/syscalls.o",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/main/sys/syscalls.c",
+    "output": "/home/maldus/Projects/Maldus512/ginnungagap/build/main/sys/syscalls.o"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-gcc -MD -MF build/components/rp2040/uart/uart.o.d -nostartfiles -ffreestanding -O1 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -c components/rp2040/uart/uart.c -o build/components/rp2040/uart/uart.o",
-    "file": "components/rp2040/uart/uart.c",
-    "output": "build/components/rp2040/uart/uart.o"
+    "command": "arm-none-eabi-gcc -MD -MF /home/maldus/Projects/Maldus512/ginnungagap/build/main/sys/crt0.o.d -nostartfiles -nostdlib -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -Imain -c /home/maldus/Projects/Maldus512/ginnungagap/main/sys/crt0.c -o /home/maldus/Projects/Maldus512/ginnungagap/build/main/sys/crt0.o",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/main/sys/crt0.c",
+    "output": "/home/maldus/Projects/Maldus512/ginnungagap/build/main/sys/crt0.o"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-gcc -MD -MF build/components/rp2040/resets/resets.o.d -nostartfiles -ffreestanding -O1 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -c components/rp2040/resets/resets.c -o build/components/rp2040/resets/resets.o",
-    "file": "components/rp2040/resets/resets.c",
-    "output": "build/components/rp2040/resets/resets.o"
+    "command": "arm-none-eabi-gcc -MD -MF /home/maldus/Projects/Maldus512/ginnungagap/build/components/rp2040/sio/sio.o.d -nostartfiles -nostdlib -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -Imain -c /home/maldus/Projects/Maldus512/ginnungagap/components/rp2040/sio/sio.c -o /home/maldus/Projects/Maldus512/ginnungagap/build/components/rp2040/sio/sio.o",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/components/rp2040/sio/sio.c",
+    "output": "/home/maldus/Projects/Maldus512/ginnungagap/build/components/rp2040/sio/sio.o"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-gcc -MD -MF build/components/rp2040/systick/systick.o.d -nostartfiles -ffreestanding -O1 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -c components/rp2040/systick/systick.c -o build/components/rp2040/systick/systick.o",
-    "file": "components/rp2040/systick/systick.c",
-    "output": "build/components/rp2040/systick/systick.o"
+    "command": "arm-none-eabi-gcc -MD -MF /home/maldus/Projects/Maldus512/ginnungagap/build/components/rp2040/uart/uart.o.d -nostartfiles -nostdlib -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -Imain -c /home/maldus/Projects/Maldus512/ginnungagap/components/rp2040/uart/uart.c -o /home/maldus/Projects/Maldus512/ginnungagap/build/components/rp2040/uart/uart.o",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/components/rp2040/uart/uart.c",
+    "output": "/home/maldus/Projects/Maldus512/ginnungagap/build/components/rp2040/uart/uart.o"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-ld -nostdlib -T main/memmap.ld  components/munin-boot2/boot_stage2_checked.o build/main/bsp/oscillator.o build/main/main.o build/main/crt0.o build/components/rp2040/gpio/gpio.o build/components/rp2040/sio/sio.o build/components/rp2040/uart/uart.o build/components/rp2040/resets/resets.o build/components/rp2040/systick/systick.o -o build/ginnungagap.elf",
-    "file": "components/munin-boot2/boot_stage2_checked.o",
-    "output": "build/ginnungagap.elf"
+    "command": "arm-none-eabi-gcc -MD -MF /home/maldus/Projects/Maldus512/ginnungagap/build/components/rp2040/resets/resets.o.d -nostartfiles -nostdlib -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -Imain -c /home/maldus/Projects/Maldus512/ginnungagap/components/rp2040/resets/resets.c -o /home/maldus/Projects/Maldus512/ginnungagap/build/components/rp2040/resets/resets.o",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/components/rp2040/resets/resets.c",
+    "output": "/home/maldus/Projects/Maldus512/ginnungagap/build/components/rp2040/resets/resets.o"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "arm-none-eabi-objcopy -O binary build/ginnungagap.elf build/ginnungagap.bin",
-    "file": "build/ginnungagap.elf",
-    "output": "build/ginnungagap.bin"
+    "command": "arm-none-eabi-gcc -MD -MF /home/maldus/Projects/Maldus512/ginnungagap/build/components/rp2040/systick/systick.o.d -nostartfiles -nostdlib -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic -mcpu=cortex-m0 -Icomponents -Icomponents/munin-boot2/picosdk/ -Imain -c /home/maldus/Projects/Maldus512/ginnungagap/components/rp2040/systick/systick.c -o /home/maldus/Projects/Maldus512/ginnungagap/build/components/rp2040/systick/systick.o",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/components/rp2040/systick/systick.c",
+    "output": "/home/maldus/Projects/Maldus512/ginnungagap/build/components/rp2040/systick/systick.o"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "./svad.lua uf2 build/ginnungagap.bin build/ginnungagap.uf2",
-    "file": "build/ginnungagap.bin",
-    "output": "build/ginnungagap.uf2"
+    "command": "arm-none-eabi-gcc -nostartfiles -mthumb -mcpu=cortex-m0 --specs=nosys.specs -T main/sys/memmap.ld -Wl,-Map=/home/maldus/Projects/Maldus512/ginnungagap/build/ginnungagap.elf.map /home/maldus/Projects/Maldus512/ginnungagap/build/components/munin-boot2/boot_stage2_checked.o /home/maldus/Projects/Maldus512/ginnungagap/build/main/sys/entry.o /home/maldus/Projects/Maldus512/ginnungagap/build/main/bsp/clock.o /home/maldus/Projects/Maldus512/ginnungagap/build/main/main.o /home/maldus/Projects/Maldus512/ginnungagap/build/main/sys/assert.o /home/maldus/Projects/Maldus512/ginnungagap/build/main/sys/syscalls.o /home/maldus/Projects/Maldus512/ginnungagap/build/main/sys/crt0.o /home/maldus/Projects/Maldus512/ginnungagap/build/components/rp2040/sio/sio.o /home/maldus/Projects/Maldus512/ginnungagap/build/components/rp2040/uart/uart.o /home/maldus/Projects/Maldus512/ginnungagap/build/components/rp2040/resets/resets.o /home/maldus/Projects/Maldus512/ginnungagap/build/components/rp2040/systick/systick.o -o /home/maldus/Projects/Maldus512/ginnungagap/build/ginnungagap.elf -lgcc",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/build/components/munin-boot2/boot_stage2_checked.o",
+    "output": "/home/maldus/Projects/Maldus512/ginnungagap/build/ginnungagap.elf"
   },
   {
     "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
-    "command": "./svad.lua configure",
-    "file": "svad.lua",
-    "output": "build/build.ninja"
+    "command": "",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/build/ginnungagap.elf",
+    "output": "elf"
+  },
+  {
+    "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
+    "command": "arm-none-eabi-objcopy -O binary /home/maldus/Projects/Maldus512/ginnungagap/build/ginnungagap.elf /home/maldus/Projects/Maldus512/ginnungagap/build/ginnungagap.bin",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/build/ginnungagap.elf",
+    "output": "/home/maldus/Projects/Maldus512/ginnungagap/build/ginnungagap.bin"
+  },
+  {
+    "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
+    "command": "",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/build/ginnungagap.bin",
+    "output": "bin"
+  },
+  {
+    "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
+    "command": "svad.lua uf2 /home/maldus/Projects/Maldus512/ginnungagap/build/ginnungagap.bin /home/maldus/Projects/Maldus512/ginnungagap/build/ginnungagap.uf2",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/build/ginnungagap.bin",
+    "output": "/home/maldus/Projects/Maldus512/ginnungagap/build/ginnungagap.uf2"
+  },
+  {
+    "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
+    "command": "",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/build/ginnungagap.uf2",
+    "output": "uf2"
+  },
+  {
+    "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
+    "command": "arm-none-eabi-gdb -x tools/debug/load-and-exit.gdb /home/maldus/Projects/Maldus512/ginnungagap/build/ginnungagap.elf",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/build/ginnungagap.elf",
+    "output": "gdbrun"
+  },
+  {
+    "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
+    "command": "openocd -f interface/cmsis-dap.cfg -f target/rp2040.cfg -f tools/debug/openocd-gdb.config -c \"adapter speed 5000\" -c \"program build/ginnungagap.elf reset exit\"",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/build/ginnungagap.elf",
+    "output": "flash"
+  },
+  {
+    "directory": "/home/maldus/Projects/Maldus512/ginnungagap",
+    "command": "svad.lua configure",
+    "file": "/home/maldus/Projects/Maldus512/ginnungagap/build.lua",
+    "output": "/home/maldus/Projects/Maldus512/ginnungagap/build/build.ninja"
   }
 ]

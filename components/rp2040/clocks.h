@@ -13,7 +13,7 @@
 
 
 #define RP2040_CLOCKS_CLK_PERI_CTRL_AUXSRC_BITS(Value) MASKSHIFT((Value), 0x3, 5)
-#define RP2040_CLOCKS_CLK_PERI_CTRL_ENABLE_BITS(Value) MASKSHIFT((Value), 0x1, 11)
+#define RP2040_CLOCKS_CLK_PERI_CTRL_ENABLE_BIT         (1 << 11)
 
 
 typedef enum {

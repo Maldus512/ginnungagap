@@ -6,6 +6,8 @@ MEMORY {
 ENTRY(_debugger_entry_point)
 
 SECTIONS {
+    __bootrom_vector = 0;
+
     .text : {
         . = ORIGIN(FLASH);
         __boot2_start__ = .;
@@ -25,6 +27,7 @@ SECTIONS {
     } > FLASH
 
     .data : {
+        /*KEEP(*(.debugger_entry_point*))*/
         __data_start__ = .;
         *(.data*)
         . = ALIGN(4);

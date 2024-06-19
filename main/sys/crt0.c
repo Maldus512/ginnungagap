@@ -49,13 +49,24 @@ __attribute__((section(".vector_table"))) uint32_t __vector[48] = {
     (uint32_t)stub_handler,        (uint32_t)stub_handler,
 };
 
+extern int __bootrom_vector;
 
-void _debugger_entry_point(void) {
+#if 1
+__attribute__((section(".debugger_entry_point"))) void _debugger_entry_point(void) {
+    /*
     volatile uint32_t *bootrom_vector_table_pointer = (volatile uint32_t *)0x0;
 
     __asm("msr msp, %0" : : "r"(bootrom_vector_table_pointer[0]));
     __asm("bx %0" : : "r"(bootrom_vector_table_pointer[1]));
+    */
+
+    //ldr r1, =(PPB_BASE + M0PLUS_VTOR_OFFSET)
+    //str r0, [r1]
+
+    __asm("msr msp, %0" : : "r"(((volatile uint32_t *)&__bootrom_vector)[0]));
+    __asm("bx %0" : : "r"(((volatile uint32_t *)&__bootrom_vector)[1]));
 }
+#endif
 
 
 __attribute__((weak)) void nvic_nmi_handler(void) {

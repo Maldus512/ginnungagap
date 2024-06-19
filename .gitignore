@@ -1,6 +1,11 @@
 *.o
 .ninja_deps
 .ninja_log
+*.bin
+*.elf
+*.s
 compile_commands.json
 /build
 /.cache
+.env
+export.sh

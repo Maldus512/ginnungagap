@@ -14,7 +14,7 @@
 #define RP2040_RESETS_BIT_UART1    (1 << 23)
 
 
-void rp2040_resets_clear_bank0(void);
+void resets_clear_and_wait(uint32_t mask);
 
 
 #endif
