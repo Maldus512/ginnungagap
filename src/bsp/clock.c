@@ -1,9 +1,13 @@
 #include "rp2040/xosc.h"
 #include "rp2040/clocks.h"
+#include "rp2040/m0plus.h"
 #include "clock.h"
 
 
 #define PICO_STARTUP_DELAY 47
+
+
+static uint32_t ticks = 0;
 
 
 uint32_t bsp_clock_init(void) {
@@ -18,5 +22,16 @@ uint32_t bsp_clock_init(void) {
         RP2040_CLOCKS_CLK_PERI_CTRL_AUXSRC_BITS(RP2040_CLOCKS_CLK_PERI_CTRL_AUXSRC_XOSC_CLKSRC) |
         RP2040_CLOCKS_CLK_PERI_CTRL_ENABLE_BIT;
 
-    return 12000000;
+    const uint32_t frequency = 12000000;
+
+    *RP2040_M0PLUS_SYST_RVR = frequency;
+    *RP2040_M0PLUS_SYST_CSR =
+        RP2040_M0PLUS_SYST_CSR_ENABLE_BIT | RP2040_M0PLUS_SYST_CSR_TICKINT_BIT | RP2040_M0PLUS_SYST_CSR_CLKSOURCE_BIT;
+
+    return frequency;
+}
+
+
+void nvic_systick_handler(void) {
+    ticks++;
 }

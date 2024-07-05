@@ -12,8 +12,8 @@ local LINKER = TOOLCHAIN .. "-gcc"
 local OBJCOPY = TOOLCHAIN .. "-objcopy"
 local GDB = TOOLCHAIN .. "-gdb"
 
-local INCLUDES = "-Icomponents -Icomponents/munin-boot2/picosdk/ -Imain"
-local MAIN_MEMMAP = "main/sys/memmap.ld"
+local INCLUDES = "-Icomponents -Icomponents/munin-boot2/picosdk/ -Isrc"
+local MAIN_MEMMAP = "src/sys/memmap.ld"
 local FCPU = "-mcpu=cortex-m0"
 local CFLAGS = "-nostartfiles -nostdlib -ffreestanding -O0 -g -mthumb -Wall -Wextra -pedantic " ..
     FCPU .. " " .. INCLUDES
@@ -22,8 +22,6 @@ local LFLAGS = "-nostartfiles -mthumb " .. FCPU
 local COMPONENT_BOOT_STAGE2 = "components/munin-boot2"
 
 local BOOT_STAGE2_MEMMAP = COMPONENT_BOOT_STAGE2 .. "/memmap.ld"
-
-local ELF = BUILD_FOLDER .. "/" .. PROJECT .. ".elf"
 
 local NINJA_FILE = string.format("%s/build.ninja", BUILD_FOLDER)
 
@@ -189,11 +187,11 @@ return {
             -- Build Main application
             local objects = { boot_stage2_checked_object }
 
-            for _, source in pairs(svadilfari.listFilesOfType("main", "S")) do
+            for _, source in pairs(svadilfari.listFilesOfType("src", "S")) do
                 table.insert(objects, compileC(source))
             end
 
-            for _, source in pairs(svadilfari.listFilesOfType("main", "c")) do
+            for _, source in pairs(svadilfari.listFilesOfType("src", "c")) do
                 table.insert(objects, compileC(source))
             end
 
@@ -325,6 +323,5 @@ return {
     end,
     build = "ninja -f " .. NINJA_FILE,
     clean = string.format("ninja -f %s -t clean", NINJA_FILE),
-    gdbrun = string.format("ninja -f %s gdbrun", NINJA_FILE),
-    flash = string.format("ninja -f %s flash", NINJA_FILE),
+    ninja = NINJA_FILE,
 }
